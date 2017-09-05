@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Progress Tracker</title>
+		<link type="text/css" rel="stylesheet" href="css/index.css"/>
+	</head>
+	<body>
+		<div id="master">
+
+			<!-- Title -->
+			<h1>Progress Tracker</h1>
+
+			<!-- The task columns -->
+			<div id="tasks" style="display: none;">
+
+				<!-- Each column of days -->
+				<div class="task-list" v-for="task in tasks">
+
+					<!-- Task title -->
+					<h3>{{ task.name }}</h3>
+
+					<!-- Each day: check or x, colored accordingly -->
+					<div class="day"
+						v-for="day in task.days"
+						:style="{color: day.complete ? task.color : 'whitesmoke'}"
+						@click="complete(day, !day.complete)">
+						<div v-if="day.complete">✔</div>
+						<div v-else>✘</div>
+					</div>
+
+				</div> <!-- .task-list -->
+
+				<!-- New task input -->
+				<div id="task-input" class="task-list" v-if="editing">
+					<input id="new_task_name" v-model="new_task_name" placeholder="new task name"></input>
+					<button @click="append">Add task</button>
+				</div>
+
+				<!-- Toggle editing button -->
+				<div id="edit-toggle" class="task-list">
+					<button @click="editing = !editing"><h3>...</h3></button>
+				</div>
+
+			</div> <!-- #tasks -->
+
+		</div> <!-- #master -->
+
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>

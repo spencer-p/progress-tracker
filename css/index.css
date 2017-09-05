@@ -1,0 +1,28 @@
+body {
+	font-family: Arial, Sans;
+}
+
+#master {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#tasks {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.task-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin: 10px;
+}
+
+.day {
+	font-size: 64px;
+	margin: 10px;
+}
